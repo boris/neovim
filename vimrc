@@ -1,8 +1,8 @@
 "Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'arcticicestudio/nord-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
@@ -32,7 +32,7 @@ set autoindent
 set mouse=a
 set textwidth=80
 set dir=/tmp
-colorscheme nord
+colorscheme jellybeans
 
 "Prepare tab/space indent settings
 set tabstop=4
@@ -42,11 +42,10 @@ set expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "Cursor lines
-set cul
 set cursorline
 highlight CursorLine term=underline guibg=#3b3b3b
-hi StatusLine ctermbg=blue ctermfg=grey
-set colorcolumn=80,81
+set colorcolumn=80
+highlight ColorColumn guibg=#3b3b3b
 
 "Set Invisibles
 set list
@@ -61,5 +60,5 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
-let g:airline_theme='nord'
+let g:airline_theme='bubblegum'
 
