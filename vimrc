@@ -32,6 +32,7 @@ set autoindent
 set mouse=a
 set textwidth=80
 set dir=/tmp
+set modeline
 colorscheme jellybeans
 
 "Prepare tab/space indent settings
@@ -61,4 +62,3 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
-
