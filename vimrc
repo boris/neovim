@@ -6,6 +6,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 "Basic stuffs
@@ -64,3 +65,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
+
+" Terraform
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
