@@ -7,7 +7,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
-Plug 'frazrepo/vim-rainbow'
 call plug#end()
 
 "Basic stuffs
@@ -70,7 +69,3 @@ let g:airline_theme='bubblegum'
 " Terraform
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
-
-" Vim rainbow
-let g:rainbow_active = 1
-let g:rainbow_ctermfgs = ['white', 'magenta', 'yellow', 'lightgreen', 'lightblue']
