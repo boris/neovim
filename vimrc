@@ -36,6 +36,7 @@ set mouse=a
 set textwidth=80
 set dir=/tmp
 set modeline
+set pastetoggle=<F3>
 colorscheme jellybeans
 
 "Prepare tab/space indent settings
