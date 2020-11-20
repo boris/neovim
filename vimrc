@@ -7,6 +7,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 "Basic stuffs
@@ -37,7 +38,7 @@ set textwidth=80
 set dir=/tmp
 set modeline
 set pastetoggle=<F3>
-colorscheme jellybeans
+colorscheme nord
 
 "Prepare tab/space indent settings
 set tabstop=4
@@ -65,7 +66,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
-let g:airline_theme='bubblegum'
+let g:airline_theme='deus'
 
 " Terraform
 let g:terraform_align=1
