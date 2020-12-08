@@ -38,7 +38,8 @@ set textwidth=80
 set dir=/tmp
 set modeline
 set pastetoggle=<F3>
-colorscheme nord
+colorscheme gruvbox
+set background=dark
 
 "Prepare tab/space indent settings
 set tabstop=4
@@ -71,3 +72,4 @@ let g:airline_theme='deus'
 " Terraform
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
+
