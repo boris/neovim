@@ -8,6 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-surround'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 "Basic stuffs
@@ -38,8 +39,9 @@ set textwidth=80
 set dir=/tmp
 set modeline
 set pastetoggle=<F3>
-colorscheme gruvbox
+colorscheme tender
 set background=dark
+set encoding=UTF-8
 
 "Prepare tab/space indent settings
 set tabstop=4
