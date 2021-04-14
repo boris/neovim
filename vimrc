@@ -39,8 +39,8 @@ set textwidth=80
 set dir=/tmp
 set modeline
 set pastetoggle=<F3>
-colorscheme tender
-set background=dark
+colorscheme onehalfdark
+set background=light
 set encoding=UTF-8
 
 "Prepare tab/space indent settings
