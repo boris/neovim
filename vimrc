@@ -8,9 +8,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-syntastic/syntastic'
+Plug 'valloric/youcompleteme'
 call plug#end()
 
 "Basic stuffs
@@ -87,4 +87,5 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
