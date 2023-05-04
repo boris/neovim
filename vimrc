@@ -90,3 +90,10 @@ let g:syntastic_check_on_wq = 0
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+" Memory
+set maxmempattern=500000
+
+" Terminal
+set termwinsize=16x0
+map <F3> :botright term<CR>
