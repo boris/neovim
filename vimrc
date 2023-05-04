@@ -11,6 +11,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-syntastic/syntastic'
 Plug 'valloric/youcompleteme'
+Plug 'github/copilot.vim'
 call plug#end()
 
 "Basic stuffs
