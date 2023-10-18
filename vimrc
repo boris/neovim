@@ -10,8 +10,11 @@ Plug 'hashivim/vim-terraform'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-syntastic/syntastic'
-Plug 'valloric/youcompleteme'
 Plug 'github/copilot.vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'tomlion/vim-solidity'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 "Basic stuffs
@@ -96,4 +99,9 @@ set maxmempattern=500000
 
 " Terminal
 set termwinsize=16x0
-map <F3> :botright term<CR>
+map <F4> :botright term<CR>
+
+" vim-javacript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+"set conceallevel=1
