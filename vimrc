@@ -10,11 +10,12 @@ Plug 'hashivim/vim-terraform'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-syntastic/syntastic'
+Plug 'valloric/youcompleteme'
 Plug 'github/copilot.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tomlion/vim-solidity'
 Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-sensible'
 call plug#end()
 
 "Basic stuffs
@@ -105,3 +106,6 @@ map <F4> :botright term<CR>
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 "set conceallevel=1
+
+" Copilot
+let g:copilot_filetypes = {'yaml': v:true}
