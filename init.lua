@@ -42,6 +42,7 @@ require("lazy").setup({
   { "hashivim/vim-terraform" },
   { "sheerun/vim-polyglot" },
   { "ellisonleao/gruvbox.nvim" },
+  { "EdenEast/nightfox.nvim" },
 })
 
 -- NERDTree configuration
@@ -158,7 +159,11 @@ vim.g.copilot_no_tab_map = true
 require('nvim-autopairs').setup{}
 
 -- Theme configuration
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme nordfox')
 
 vim.g.airline_powerline_fonts = 1
 vim.g.airline_theme = 'deus'
+
+-- Terraform
+vim.g.terraform_align = 1
+vim.g.terraform_fmt_on_save = 1
