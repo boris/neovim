@@ -1,4 +1,17 @@
 -- init.lua
+vim.g.mapleader = " "
+vim.api.nvim_set_option('pastetoggle', '<F3>')
+vim.opt.number = true
+vim.opt.ruler = true
+vim.opt.scrolloff = 5
+vim.opt.cursorline = true
+vim.api.nvim_set_hl(0, 'CursorLine', { ctermbg = 0, fg = '#3b3b3b' })
+vim.opt.colorcolumn = '80'
+vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg = 0, fg = '#3b3b3b' })
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
 
 -- Automatically install lazy.nvim if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -14,36 +27,52 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Plugin setup
-require("lazy").setup({
-  -- NERDTree equivalent for NeoVIM
-  { "preservim/nerdtree" },
 
-  -- Copilot plugin
-  { "github/copilot.vim" },
+local plugins = {
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "preservim/nerdtree" },
+    { "github/copilot.vim" },
+    { "ryanoasis/vim-devicons" },
+    { "neovim/nvim-lspconfig" },
+    { "hrsh7th/nvim-cmp" },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
+    { "hrsh7th/cmp-cmdline" },
+    { "L3MON4D3/LuaSnip" },
+    { "saadparwaiz1/cmp_luasnip" },
+    { "windwp/nvim-autopairs" },
+    { "folke/tokyonight.nvim" },
+    { "vim-airline/vim-airline" },
+    { "vim-airline/vim-airline-themes" },
+    { "tpope/vim-fugitive" },
+    { "hashivim/vim-terraform" },
+    { "sheerun/vim-polyglot" },
+    { "ellisonleao/gruvbox.nvim" },
+    { "EdenEast/nightfox.nvim" },
+    { "nvim-telescope/telescope.nvim", tag = "0.1.8",
+       dependencies = { 
+           "nvim-lua/plenary.nvim"
+       }
+    },
+}
+local opts = {}
 
-  -- Vim devicons
-  { "ryanoasis/vim-devicons" },
+require("lazy").setup(plugins, opts)
 
-  -- LSP and completion plugins
-  { "neovim/nvim-lspconfig" },
-  { "hrsh7th/nvim-cmp" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/cmp-path" },
-  { "hrsh7th/cmp-cmdline" },
-  { "L3MON4D3/LuaSnip" },
-  { "saadparwaiz1/cmp_luasnip" },
-  { "windwp/nvim-autopairs" },
-  { "folke/tokyonight.nvim" },
-  { "vim-airline/vim-airline" },
-  { "vim-airline/vim-airline-themes" },
-  { "tpope/vim-fugitive" },
-  { "hashivim/vim-terraform" },
-  { "sheerun/vim-polyglot" },
-  { "ellisonleao/gruvbox.nvim" },
-  { "EdenEast/nightfox.nvim" },
+-- Catpuccin
+require("catppuccin").setup({
+    flavour = "auto",
+    background = {
+        dark = "frappe",
+        light = "latte"
+    }
 })
+
+-- Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
 -- NERDTree configuration
 vim.api.nvim_set_keymap('n', '<C-n>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
@@ -118,22 +147,6 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Customization
--- Set pastetoggle to <F3> in Lua
-vim.api.nvim_set_option('pastetoggle', '<F3>')
-
-vim.opt.number = true
-vim.opt.ruler = true
-vim.opt.scrolloff = 5
-vim.opt.cursorline = true
-vim.api.nvim_set_hl(0, 'CursorLine', { ctermbg = 0, fg = '#3b3b3b' })
-vim.opt.colorcolumn = '80'
-vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg = 0, fg = '#3b3b3b' })
-
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "yaml",
     callback = function()
@@ -159,8 +172,7 @@ vim.g.copilot_no_tab_map = true
 require('nvim-autopairs').setup{}
 
 -- Theme configuration
-vim.cmd('colorscheme nordfox')
-
+vim.cmd('colorscheme catppuccin')
 vim.g.airline_powerline_fonts = 1
 vim.g.airline_theme = 'deus'
 
