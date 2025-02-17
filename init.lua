@@ -29,7 +29,6 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local plugins = {
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     { "preservim/nerdtree" },
     { "github/copilot.vim" },
     { "ryanoasis/vim-devicons" },
@@ -42,13 +41,11 @@ local plugins = {
     { "L3MON4D3/LuaSnip" },
     { "saadparwaiz1/cmp_luasnip" },
     { "windwp/nvim-autopairs" },
-    { "folke/tokyonight.nvim" },
     { "vim-airline/vim-airline" },
     { "vim-airline/vim-airline-themes" },
     { "tpope/vim-fugitive" },
     { "hashivim/vim-terraform" },
     { "sheerun/vim-polyglot" },
-    { "ellisonleao/gruvbox.nvim" },
     { "EdenEast/nightfox.nvim" },
     { "nvim-telescope/telescope.nvim", tag = "0.1.8",
        dependencies = { 
@@ -59,15 +56,6 @@ local plugins = {
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-
--- Catpuccin
-require("catppuccin").setup({
-    flavour = "auto",
-    background = {
-        dark = "frappe",
-        light = "latte"
-    }
-})
 
 -- Telescope
 local builtin = require('telescope.builtin')
@@ -172,7 +160,7 @@ vim.g.copilot_no_tab_map = true
 require('nvim-autopairs').setup{}
 
 -- Theme configuration
-vim.cmd('colorscheme catppuccin')
+vim.cmd('colorscheme nordfox')
 vim.g.airline_powerline_fonts = 1
 vim.g.airline_theme = 'deus'
 
