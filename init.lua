@@ -44,7 +44,6 @@ local plugins = {
     { "vim-airline/vim-airline-themes" },
     { "tpope/vim-fugitive" },
     { "EdenEast/nightfox.nvim" },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     { "nvim-telescope/telescope.nvim", tag = "0.1.8",
        dependencies = { 
            "nvim-lua/plenary.nvim"
@@ -207,10 +206,7 @@ vim.g.copilot_no_tab_map = true
 require('nvim-autopairs').setup{}
 
 -- Theme configuration
-require("catppuccin").setup({
-    term_colors = true,
-})
-vim.cmd('colorscheme catppuccin-macchiato')
+vim.cmd('colorscheme nightfox')
 vim.g.airline_powerline_fonts = 1
 vim.g.airline_theme = 'deus'
 
