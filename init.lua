@@ -1,6 +1,6 @@
 -- init.lua
 vim.g.mapleader = " "
-vim.api.nvim_set_option('pastetoggle', '<F3>')
+--vim.api.nvim_set_option('pastetoggle', '<F3>')
 vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.scrolloff = 5
@@ -206,7 +206,7 @@ vim.g.copilot_no_tab_map = true
 require('nvim-autopairs').setup{}
 
 -- Theme configuration
-vim.cmd('colorscheme nightfox')
+vim.cmd('colorscheme nordfox')
 vim.g.airline_powerline_fonts = 1
 vim.g.airline_theme = 'deus'
 
