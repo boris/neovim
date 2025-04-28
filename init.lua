@@ -70,26 +70,25 @@ local plugins = {
         end,
         dependecies = { {'nvim-tree/nvim-web-devicons'}}
     },
+        {
+            "CopilotC-Nvim/CopilotChat.nvim",
+            dependencies = {
+                { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+                { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+            },
+            build = "make tiktoken", -- Only on MacOS or Linux
+            opts = {
+                -- See Configuration section for options
+            },
+            -- See Commands section for default commands if you want to lazy load on them
+        },
     {
-        "magatti/auto-session",
-        config = function()
-            require("auto-session").setup({
-                auto_session_suppressed_dirs = { "~", "~/Projects", "~/Downloads", "/" },
-                session_lens = {
-                    load_on_setup = true,
-                    previewer = false,
-                    mappings = {
-                        delete_session = { "i", "<C-D>" },
-                        alternate_session = { "i", "<C-S>" },
-                        copy_session = { "i", "<C-Y>" },
-                    },
-                    vim.keymap.set("n", "<Leader>ls", require("auto-session.session-lens").search_session, {
-                        noremap = true,
-                    }),
-                },
-            })
-        end,
-    }
+    "romanaverin/charleston.nvim",
+    name = "charleston",
+    priority = 1000,
+},
+
+-- end of plugins
 }
 local opts = {}
 
@@ -143,34 +142,34 @@ for _, lsp in ipairs(servers) do
 end
 
 -- nvim-cmp setup
---local cmp = require'cmp'
---local cmp_autopairs = require('nvim-autopairs.completion.cmp')
---
---cmp.setup({
---  snippet = {
---    expand = function(args)
---      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
---    end,
---  },
---  mapping = {
---    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
---    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
---    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
---    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
---    ['<C-e>'] = cmp.mapping({
---      i = cmp.mapping.abort(),
---      c = cmp.mapping.close(),
---    }),
---    ['<C-k>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
---    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
---    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
---  },
---  sources = cmp.config.sources({
---    { name = 'nvim_lsp' },
---  }, {
---    { name = 'buffer' },
---  })
---})
+local cmp = require'cmp'
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
+  mapping = {
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<C-k>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+  }, {
+    { name = 'buffer' },
+  })
+})
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -206,7 +205,7 @@ vim.g.copilot_no_tab_map = true
 require('nvim-autopairs').setup{}
 
 -- Theme configuration
-vim.cmd('colorscheme nordfox')
+vim.cmd('colorscheme charleston')
 vim.g.airline_powerline_fonts = 1
 vim.g.airline_theme = 'deus'
 
