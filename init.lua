@@ -70,23 +70,34 @@ local plugins = {
         end,
         dependecies = { {'nvim-tree/nvim-web-devicons'}}
     },
-        {
-            "CopilotC-Nvim/CopilotChat.nvim",
-            dependencies = {
-                { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
-                { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
-            },
-            build = "make tiktoken", -- Only on MacOS or Linux
-            opts = {
-                -- See Configuration section for options
-            },
-            -- See Commands section for default commands if you want to lazy load on them
+    { "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+            { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
         },
-    {
-    "romanaverin/charleston.nvim",
-    name = "charleston",
-    priority = 1000,
-},
+        build = "make tiktoken", -- Only on MacOS or Linux
+        opts = {},
+    },
+    { "romanaverin/charleston.nvim",
+        name = "charleston",
+        priority = 1000,
+    },
+    { "frankroeder/parrot.nvim",
+        dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
+        opts = {},
+        config = function()
+            require("parrot").setup({
+                providers = {
+                    gemini = {
+                        api_key = os.getenv "GEMINI_API_KEY",
+                    },
+                    openai = {
+                        api_key = os.getenv "OPENAI_API_KEY",
+                    },
+                }
+            })
+        end,
+    }
 
 -- end of plugins
 }
