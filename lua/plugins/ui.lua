@@ -1,8 +1,5 @@
 return {
-  { "preservim/nerdtree" },
   { "ryanoasis/vim-devicons" },
-  { "vim-airline/vim-airline" },
-  { "vim-airline/vim-airline-themes" },
   {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
@@ -26,5 +23,49 @@ return {
     config = function()
       require("startup").setup()
     end,
+  },
+  -- Indent guides like VSCode
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+  },
+
+  -- Modern file explorer (alternative to NERDTree)
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("neo-tree").setup({
+        filesystem = {
+          filtered_items = {
+            visible = false,  -- default: don’t show hidden files
+            hide_dotfiles = true,
+            hide_gitignored = true,
+          },
+        },
+        window = {
+          position = "left",
+          width = 30,
+          mappings = {
+            ["<space>"] = "toggle_hidden",
+          }
+        },
+      })
+    end,
+    keys = {
+      {
+        "<C-n>",
+        function()
+          require("neo-tree.command").execute({ toggle = true })
+        end,
+        desc = "Toggle NeoTree",
+      },
+    },
   },
 }
