@@ -117,6 +117,23 @@ You can extend them in `config/lsp.lua`.
 
 ---
 
+## 🧠 Keymaps
+
+| Mapping       | Mode     | Action                                |
+|---------------|----------|----------------------------------------|
+| `<C-n>`       | Normal   | Toggle Neo-tree file explorer          |
+| `<C-p>`       | Normal   | Telescope: find files                  |
+| `<leader>fg`  | Normal   | Telescope: live grep                   |
+| `<C-i>`       | Normal   | Toggle invisible characters (`:set list!`) |
+| `<C-j>`       | Insert   | Accept GitHub Copilot suggestion       |
+| `<leader>aa`  | Normal/Visual | Toggle Copilot Chat window       |
+| `<C-b>`       | Normal/Visual | Toggle Copilot Chat window       |
+| `u` (in Neo-tree) | Normal | Go up one directory level             |
+| `zh` (in Neo-tree) | Normal | Toggle hidden files                  |
+| `zz` (in Neo-tree) | Normal | Toggle file tree view               |
+
+---
+
 ## 📦 Powered by
 
 - [Lazy.nvim](https://github.com/folke/lazy.nvim)
@@ -124,4 +141,3 @@ You can extend them in `config/lsp.lua`.
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
----
