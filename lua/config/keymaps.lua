@@ -11,3 +11,20 @@ vim.keymap.set('i', '<C-j>', 'copilot#Accept("\\<CR>")', {
   expr = true,
   replace_keycodes = false,
 })
+
+-- Which key plugin
+-- Following code is just an example
+-- local wk = require("which-key")
+-- 
+-- wk.register({
+--   ["<leader>f"] = {
+--     name = "+find",
+--     fg = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Live Grep" },
+--     ff = { "<cmd>lua require('telescope.builtin').find_files()<CR>", "Find Files" },
+--   },
+--   ["<leader>a"] = {
+--     name = "+ai",
+--     a = { function() require("CopilotChat").toggle() end, "Toggle Copilot Chat" },
+--   },
+-- })
+
