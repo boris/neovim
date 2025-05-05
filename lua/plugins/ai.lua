@@ -1,5 +1,5 @@
 return {
-  -- Copilot chat
+  -- Github Copilot
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
@@ -39,19 +39,6 @@ return {
       }
     },
   },
-  -- GitHub Copilot
-  { "github/copilot.vim" },
-
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim", branch = "master" },
-    },
-    build = "make tiktoken",
-    opts = {},
-  },
-
   -- Parrot.nvim for AI prompts
   {
     "frankroeder/parrot.nvim",
