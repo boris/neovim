@@ -18,3 +18,7 @@ vim.g.terraform_fmt_on_save = 1
 -- Copilot tab override
 vim.g.copilot_no_tab_map = true
 vim.opt.splitright = true
+
+-- Which key
+-- vim.cmd([[autocmd VimEnter * WhichKey <leader>]])
+-- vim.keymap.set("n", "<leader>?", "<cmd>WhichKey<cr>", { desc = "Show all mappings" })
