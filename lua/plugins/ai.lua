@@ -1,9 +1,13 @@
 return {
   -- Github Copilot
   {
+    "github/copilot.vim",
+    ft = { "yaml", "yaml.ansible" },
+  },
+  {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+      { "github/copilot.vim" },
       { "nvim-lua/plenary.nvim", branch = "master" },
     },
     build = "make tiktoken",
