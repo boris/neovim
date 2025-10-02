@@ -1,5 +1,4 @@
 return {
-  -- Github Copilot
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -41,7 +40,7 @@ return {
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual",
         },
         width = 0.4,
-      }
+      },
     },
     cmd = "CopilotChat",
     keys = {
@@ -58,29 +57,34 @@ return {
         function()
           require("CopilotChat").toggle()
         end,
-        desc = "Toggle Copilot Chat (Ctrl-B)",
+        desc = "Toggle Copilot Chat",
         mode = { "n", "v" },
-      }
+      },
     },
   },
-  -- Parrot.nvim for AI prompts
   {
-    "frankroeder/parrot.nvim",
-    dependencies = {
-      "ibhagwan/fzf-lua",
-      "nvim-lua/plenary.nvim",
+    "johnseth97/codex.nvim",
+    lazy = true,
+    cmd = { "Codex", "CodexToggle" },
+    keys = {
+      {
+        "<leader>cc",
+        function()
+          require("codex").toggle()
+        end,
+        desc = "Toggle Codex popup",
+      },
     },
-    config = function()
-      require("parrot").setup({
-        providers = {
-          gemini = {
-            api_key = os.getenv "GEMINI_API_KEY",
-          },
-          openai = {
-            api_key = os.getenv "OPENAI_API_KEY",
-          },
-        },
-      })
-    end,
+    opts = {
+      keymaps = {
+        toggle = nil,
+        quit = "<C-q>",
+      },
+      border = "rounded",
+      width = 0.8,
+      height = 0.8,
+      model = nil,
+      autoinstall = true,
+    },
   },
 }
